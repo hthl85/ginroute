@@ -17,6 +17,16 @@ type Route struct {
 	RouteHandlers []gin.HandlerFunc
 }
 
+const (
+	GET     = "GET"
+	POST    = "POST"
+	PUT     = "PUT"
+	PATCH   = "PATCH"
+	HEAD    = "HEAD"
+	OPTIONS = "OPTIONS"
+	DELETE  = "DELETE"
+)
+
 // NewGinRoute initializes gin route
 func NewGinRoute(engine *gin.Engine, appRoute []AppRoute) {
 
@@ -26,19 +36,19 @@ func NewGinRoute(engine *gin.Engine, appRoute []AppRoute) {
 
 		for _, route := range routes.Routes {
 			switch route.Method {
-			case "GET":
+			case GET:
 				groupRoute.GET(route.Pattern, route.RouteHandlers...)
-			case "POST":
+			case POST:
 				groupRoute.POST(route.Pattern, route.RouteHandlers...)
-			case "PUT":
+			case PUT:
 				groupRoute.PUT(route.Pattern, route.RouteHandlers...)
-			case "PATCH":
+			case PATCH:
 				groupRoute.PATCH(route.Pattern, route.RouteHandlers...)
-			case "HEAD":
+			case HEAD:
 				groupRoute.HEAD(route.Pattern, route.RouteHandlers...)
-			case "OPTIONS":
+			case OPTIONS:
 				groupRoute.OPTIONS(route.Pattern, route.RouteHandlers...)
-			case "DELETE":
+			case DELETE:
 				groupRoute.DELETE(route.Pattern, route.RouteHandlers...)
 			}
 		}
