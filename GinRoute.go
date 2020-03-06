@@ -28,8 +28,8 @@ type Route struct {
 	RouteHandlers []gin.HandlerFunc
 }
 
-// NewGinRoute initializes gin route
-func NewGinRoute(engine *gin.Engine, appRoute []AppRoute) {
+// SetRoutes set route to gin engine
+func SetRoutes(engine *gin.Engine, appRoute []AppRoute) {
 
 	// Iterate over given app route and attach them to the gin engine
 	for _, routes := range appRoute {
