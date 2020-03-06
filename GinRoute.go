@@ -2,6 +2,17 @@ package ginroute
 
 import "github.com/gin-gonic/gin"
 
+// Http method constants
+const (
+	GET     = "GET"
+	POST    = "POST"
+	PUT     = "PUT"
+	PATCH   = "PATCH"
+	HEAD    = "HEAD"
+	OPTIONS = "OPTIONS"
+	DELETE  = "DELETE"
+)
+
 // AppRoute struct
 type AppRoute struct {
 	Group         string
@@ -16,16 +27,6 @@ type Route struct {
 	Pattern       string
 	RouteHandlers []gin.HandlerFunc
 }
-
-const (
-	GET     = "GET"
-	POST    = "POST"
-	PUT     = "PUT"
-	PATCH   = "PATCH"
-	HEAD    = "HEAD"
-	OPTIONS = "OPTIONS"
-	DELETE  = "DELETE"
-)
 
 // NewGinRoute initializes gin route
 func NewGinRoute(engine *gin.Engine, appRoute []AppRoute) {
